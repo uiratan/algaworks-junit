@@ -1,5 +1,5 @@
 package com.algaworks.junit.utilidade;
-
+        
 public class SaudacaoUtil {
 
     private SaudacaoUtil() {
