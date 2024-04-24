@@ -5,15 +5,21 @@ import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 
 import java.time.Duration;
 
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIf;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 
 class SimuladorEsperaTest {
     @Test
-    @Disabled("Não é mais aplicável")
+    // @Disabled("Não é mais aplicável")
+    @EnabledIfEnvironmentVariable(named = "ENV", matches = "DEV")
     void deveEsperarENaoDarTimeout() {
         // assertTimeout(Duration.ofSeconds(1), () -> SimuladorEspera.esperar(Duration.ofSeconds(1)));
 
+        // Assumptions.assumeTrue("PROD".equals(System.getenv("ENV")), () -> "Abortando teste. Não deve ser executado em PROD");
+        
         assertTimeoutPreemptively(Duration.ofSeconds(1), () -> SimuladorEspera.esperar(Duration.ofMillis(10)));
 
         // assertTimeoutPreemptively(Duration.ofSeconds(1), () -> SimuladorEspera.esperar(Duration.ofSeconds(10)));
