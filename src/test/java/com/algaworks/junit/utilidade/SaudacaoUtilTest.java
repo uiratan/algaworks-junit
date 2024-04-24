@@ -7,9 +7,21 @@ import org.junit.jupiter.api.Test;
 class SaudacaoUtilTest {
     
     @Test
-    void saudar() {
+    void deveSaudarBomDia() {
         String saudacao = SaudacaoUtil.saudar(9);
         assertEquals("Bom dia", saudacao, "Saudação incorreta");
+    }
+
+    @Test
+    void deveSaudarBoaTarde() {
+        String saudacao = SaudacaoUtil.saudar(15);
+        assertEquals("Boa tarde", saudacao, "Saudação incorreta");
+    }
+
+    @Test
+    void deveSaudarBomNoite() {
+        String saudacao = SaudacaoUtil.saudar(19);
+        assertEquals("Boa noite", saudacao, "Saudação incorreta");
     }
 
     @Test
