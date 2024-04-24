@@ -1,17 +1,21 @@
 package com.algaworks.junit.utilidade;
 
 import static com.algaworks.junit.utilidade.SaudacaoUtil.saudar;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
-import org.junit.jupiter.api.function.ThrowingSupplier;
 
+@DisplayName("Testes no utilitário de saudação")
 class SaudacaoUtilTest {
     
     // triple A - Arrange, Act, Assert
     
     @Test
+    @DisplayName("Deve saudar com bom dia")
     void deveSaudarBomDia() {
         // Arrange
         int horaValida = 9;
@@ -24,6 +28,7 @@ class SaudacaoUtilTest {
     }
 
     @Test
+    @DisplayName("Deve saudar com boa dia às 5h")
     void deveSaudarBomDiaApartir5h() {
         int horaValida = 5;
 
