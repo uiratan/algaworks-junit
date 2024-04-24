@@ -6,17 +6,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-@DisplayName("Testes no utilitário de saudação")
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class SaudacaoUtilTest {
     
     // triple A - Arrange, Act, Assert
     
     @Test
-    @DisplayName("Deve saudar com bom dia")
-    void deveSaudarBomDia() {
+    void Dado_um_horario_matutino_Quando_saudar_Entao_deve_retornar_bom_dia() {
         // Arrange
         int horaValida = 9;
 
@@ -38,7 +39,7 @@ class SaudacaoUtilTest {
     }
 
     @Test
-    void deveSaudarBoaTarde() {
+    void Dado_um_horario_vespertino_Quando_saudar_Entao_deve_retornar_boa_tarde() {
         int horaValida = 15;
 
         String saudacao = saudar(horaValida);
@@ -56,7 +57,7 @@ class SaudacaoUtilTest {
     }
 
     @Test
-    void deveSaudarBoaNoiteAs4h() {
+    void Dado_um_horario_noturno_Quando_saudar_Entao_deve_retornar_boa_noite() {
         int horaValida = 4;
 
         String saudacao = saudar(horaValida);
@@ -65,7 +66,7 @@ class SaudacaoUtilTest {
     }
 
     @Test
-    void deveLancarException() {
+    void Dado_uma_hora_invalida_Quando_saudar_Entao_deve_lancar_Exception() {
         // Arrange
         int horaInvalida = -10;
 
@@ -78,7 +79,7 @@ class SaudacaoUtilTest {
     }
 
     @Test
-    void naoDeveLancarException() {
+    void Dado_uma_hora_valida_Quando_saudar_Entao_nao_deve_lancar_exception() {
         int horaValida = 0;
 
         Executable  chamadaValidaDeMetodo = () -> saudar(horaValida);
